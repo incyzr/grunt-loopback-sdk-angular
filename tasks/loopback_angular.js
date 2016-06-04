@@ -61,7 +61,12 @@ module.exports = function(grunt) {
       options.ngModuleName,
       options.apiUrl);
 
-    var script = generator.services(app, options.ngModuleName, options.apiUrl);
+    options.factory = options.factory || false;
+
+    var script = generator.services(app,
+                                    options.ngModuleName,
+                                    options.apiUrl,
+                                    options.factory);
 
     grunt.file.write(options.output, script);
 
